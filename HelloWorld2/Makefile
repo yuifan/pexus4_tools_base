@@ -8,3 +8,6 @@ run:
 
 debug:
 	gdb ./HelloWorld2.exe
+
+clean:
+	rm ./HelloWorld2.exe
