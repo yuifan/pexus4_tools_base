@@ -7,6 +7,10 @@
 
 using namespace std;
 
+#define ADD_NODE    1
+#define REM_NODE    2
+#define PRINT_ALL   3
+
 class QueueTest1 {
 public:
     int value;

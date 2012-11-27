@@ -6,12 +6,27 @@ void printAll();
 QueueTest1* HEAD = NULL;
 
 int main(void) {
-    addNode();
-    addNode();
-    addNode();
-    
-    printAll();
-    
+    while(1) {
+        int userSelection;
+        cout << "1. Add Node" << endl;
+        cout << "2. Rem Node" << endl;
+        cout << "3. Print" << endl;
+        cout << "Select: ";     cin >> userSelection;
+        
+        switch(userSelection) {
+        case ADD_NODE:
+            addNode();
+            break;
+        case REM_NODE:
+            remNode();
+            break;
+        case PRINT_ALL:
+            printAll();
+            break;
+        default:
+            cout << "Fault!!" << endl;
+        }
+    }
     return 0;
 }
 
@@ -39,14 +54,21 @@ void remNode() {
     if (HEAD == NULL) {
         return;
     } else {
+        QueueTest1* ppre = NULL;
         QueueTest1* pre = NULL;
         QueueTest1* cur = HEAD;
         while(cur != NULL) {
+            ppre = pre;
             pre = cur;
             cur = cur->link_field;
         }
-        delete pre;
-        pre = NULL;
+        if (pre == HEAD) {
+            delete pre;
+            HEAD = NULL;
+        } else {
+            delete pre;
+            ppre->link_field = NULL;
+        }
     }
 }
 

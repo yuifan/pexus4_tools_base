@@ -1,13 +1,14 @@
 TARGET = QueueTest1
 EXEC_EXT = .exe
+EXECUTE_FILE_NAME = $(TARGET)$(EXEC_EXT)
 GDB = gdb
 CPPFLAGS = -g
 QT_FILE = QueueTest1.o
 QT_MAIN = QueueMain.o
 OBJECT = $(QT_FILE) $(QT_MAIN)
 
-$(TARGET)$(EXEC_EXT): $(OBJECT)
-	$(CXX) $(CPPFLAGS) -o $(TARGET)$(EXEC_EXT) $^
+$(EXECUTE_FILE_NAME): $(OBJECT)
+	$(CXX) $(CPPFLAGS) -o $(EXECUTE_FILE_NAME) $^
 
 $(QT_FILE): $(TARGET).h $(TARGET).cpp
 	$(CXX) $(CPPFLAGS) -c $^
@@ -16,10 +17,10 @@ $(QT_MAIN): $(QT_MAIN:.o=.cpp)
 	$(CXX) $(CPPFLAGS) -c $^
 
 run:
-	./$(TARGET)$(EXEC_EXT)
+	./$(EXECUTE_FILE_NAME)
 
 debug:
-	$(GDB) ./$(TARGET)$(EXEC_EXT)
+	$(GDB) ./$(EXECUTE_FILE_NAME)
 
 clean:
-	$(RM) ./$(TARGET)$(EXEC_EXT) $(QT_FILE) $(QT_MAIN)
+	$(RM) ./$(EXECUTE_FILE_NAME) $(QT_FILE) $(QT_MAIN)
