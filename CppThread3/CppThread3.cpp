@@ -2,6 +2,7 @@
 
 int main(void) {
     pthread_t p_thread[2];
+    int tid;
     int status;
     init();    
 
@@ -18,7 +19,7 @@ void* nextAlphabet1(void* next1) {
     while(1) {
         pthread_mutex_lock(&mutex);
         pthread_cond_wait(&cond, &mutex);
-        cout << " " << myalphabet.ch << " (" << tid << ")" << endl;
+        cout << " " << myalphabet.ch << " (tid.1)" << endl;
         if (myalphabet.ch == 'z') {
             cout << " The end." << endl;
             exit(0);
@@ -32,7 +33,7 @@ void* nextAlphabet1(void* next1) {
 void* nextAlphabet2(void* next2) {
     while(1) {
         pthread_mutex_lock(&mutex);
-        cout << " " << myalphabet.ch << " (" << tid << ")" << endl;
+        cout << " " << myalphabet.ch << " (tid.2)" << endl;
         if (myalphabet.ch == 'z') {
             cout << " The end." << endl;
             exit(0);

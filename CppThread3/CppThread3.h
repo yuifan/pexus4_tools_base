@@ -17,7 +17,6 @@ struct alpha {
     char ch;
 };
 
-int tid;
 struct alpha myalphabet;
 
 void* nextAlphabet1(void*);
