@@ -4,6 +4,7 @@ int main(void) {
     pthread_t p_thread[2];
     int tid;
     int status;
+    init();
     
     tid = pthread_create(&p_thread[1], NULL, do_plus, NULL);
     

@@ -1,22 +1,23 @@
-TARGET = CppThread2
+TARGET = CppThread3
 EXEC_FILE_EXT = exe
 EXEC_FILE_NAME = $(TARGET).$(EXEC_FILE_EXT)
 
-SRC_CPP_TD_HEADER = CppThread2.h
-SRC_CPP_TD_CPP = CppThread2.cpp
+SRC_CPP_TD_HEADER = CppThread3.h
+SRC_CPP_TD_CPP = CppThread3.cpp
 
-CPP_TD_OBJ = CppThread2.o
+CPP_TD_OBJ = CppThread3.o
 OBJECT = $(CPP_TD_OBJ)
 
 C_FLAG = -c
 G_FLAG = -g
 O_FLAG = -o
 
-CUR_DIR = .
 RUN = run
 DEBG = debug
 CL = clean
+
 GDB = gdb
+CUR_DIR = .
 
 $(EXEC_FILE_NAME): $(OBJECT)
 	$(CXX) $(G_FLAG) $(O_FLAG) $(EXEC_FILE_NAME) $^
@@ -31,4 +32,4 @@ $(DEBG):
 	$(GDB) $(CUR_DIR)/$(EXEC_FILE_NAME)
 
 $(CL):
-	$(RM) $(CUR_DIR)/$(EXEC_FILE_NAME) $(CUR_DIR)/$(CPP_TD_OBJ)
+	$(RM) $(CUR_DIR)/$(EXEC_FILE_NAME) $(CUR_DIR)/$(OBJECT)
