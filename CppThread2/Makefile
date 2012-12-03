@@ -1,0 +1,33 @@
+TARGET = CppThread2
+EXEC_FILE_EXT = exe
+EXEC_FILE_NAME = $(TARGET).$(EXEC_FILE_EXT)
+
+SRC_CPP_TD_HEADER = CppThread2.h
+SRC_CPP_TD_CPP = CppThread2.cpp
+
+CPP_TD_OBJ = CppThread2.o
+OBJECT = $(CPP_TD_OBJ)
+
+C_FLAG = -c
+G_FLAG = -g
+O_FLAG = -o
+
+CUR_DIR = .
+RUN = run
+DEBG = debug
+CL = clean
+
+$(EXEC_FILE_NAME): $(OBJECT)
+	$(CXX) $(G_FLAG) $(O_FLAG) $(EXEC_FILE_NAME) $^
+
+$(CPP_TD_OBJ): $(SRC_CPP_TD_HEADER) $(SRC_CPP_TD_CPP)
+	$(CXX) $(G_FLAG) $(C_FLAG) $^
+
+$(RUN):
+	$(CUR_DIR)/$(EXEC_FILE_NAME)
+
+$(DEBG):
+	$(GDB) $(CUR_DIR)/$(EXEC_FILE_NAME)
+
+$(CL):
+	$(RM) $(CUR_DIR)/$(EXEC_FILE_NAME) $(CUR_DIR)/$(CPP_TD_OBJ)
