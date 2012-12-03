@@ -10,5 +10,5 @@ debug:
 	gdb ./Race.exe
 
 clean:
-	rm ./Race.man
+	rm ./Race.exe
 
